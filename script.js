@@ -103,7 +103,7 @@ function getWeatherDetails(name,lat,lon,country,_state,_local_names){
            {timezone}=data,
            sRiseTime = moment.utc(sunrise,'X').add(timezone, 'seconds').format('hh:mm A'),
            sSetTime = moment.utc(sunset,'X').add(timezone, 'seconds').format('hh:mm A'),
-            sunriseCard.innerHTML = `
+            sunriseCard,innerHTML = `
                 <div class="card head">
                     <p>Sunrise & Sunset</p>
                 </div>
