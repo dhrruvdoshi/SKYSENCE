@@ -4,7 +4,6 @@ api_key = 'dcdc2e351442daeccca00820222b9f78';
 currentWeatherCard = document.querySelectorAll('.weather-left .card')[0];
 fiveDaysForecastCard=document.querySelector(' .day-forecast');
 aqiCard = document.querySelectorAll(' .highlights .card')[0];
-sunriseCard = document.querySelectorAll('.highlights .card')[1],
 aqiList=['Good','Fair','Moderate','Poor','Very Poor'];
 function getWeatherDetails(name,lat,lon,country,_state,_local_names){
     let FORECAST_API_URL=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,
@@ -99,35 +98,6 @@ function getWeatherDetails(name,lat,lon,country,_state,_local_names){
                     <p><i class="fa-solid fa-location-dot"></i>${name}, ${country}</p>
                 </div>
            `;
-           let {sunrise, sunset} = data.sys,
-           {timezone}=data,
-           sRiseTime = moment.utc(sunrise,'X').add(timezone, 'seconds').format('hh:mm A'),
-           sSetTime = moment.utc(sunset,'X').add(timezone, 'seconds').format('hh:mm A'),
-            sunriseCard,innerHTML = `
-                <div class="card head">
-                    <p>Sunrise & Sunset</p>
-                </div>
-                <div class="sunrise-sunset">
-                    <div class="item">
-                        <div class="icon">
-                            <img src="sunrise.png" alt="icon" height="80" width="80">
-                        </div>
-                        <div>
-                            <p>Sunrise</p>
-                            <h2>${sRiseTime}</h2>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="icon">
-                            <img src="sunset.png" alt="icon" height="80" width="80">
-                        </div>
-                        <div>
-                            <p>Sunset</p>
-                            <h2>${sSetTime}</h2>
-                        </div>
-                    </div>
-                </div>
-                `;
     }).catch(() => {
         alert('Failed to catch Current Weather')
     })
