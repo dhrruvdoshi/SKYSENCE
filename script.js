@@ -85,7 +85,7 @@ function getWeatherDetails(name,lat,lon,country,_state,_local_names){
            <div class="current-weather">
                     <div class="details">
                         <p>Now</p>
-                        <h2>${(data.main.temp - 273.15).toFixed(2)}&deg;C</h2>
+                        <h2>${(data.main.temp - 273).toFixed(2)}&deg;C</h2>
                         <p>${data.weather[0].description}</p>
                     </div>
                     <div class="weather-icon">
