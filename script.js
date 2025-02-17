@@ -149,8 +149,12 @@ function getLocationCoordinates(){
         getWeatherDetails(name,latitude,longitude,country,state);
     }).catch(() => {
         alert(`Failed to fetch Current Location`);
+    });
+},error => {
+    if(error.code === error.PERMISSION_DENIED){
+        alert('Reset Location Permissions');
     }
     });
-}
+                                             }
 searchBtn.addEventListener('click',getCityCoordinates);
 locationBtn.addEventListener('click',getLocationCoordinates);
