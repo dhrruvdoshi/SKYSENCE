@@ -5,7 +5,7 @@ currentWeatherCard = document.querySelectorAll('.weather-left .card')[0];
 fiveDaysForecastCard=document.querySelector(' .day-forecast');
 aqiCard = document.querySelectorAll(' .highlights .card')[0];
 aqiList=['Good','Fair','Moderate','Poor','Very Poor'];
-function getWeatherDetails(name,lat,lon,country,_state,_local_names){
+function getWeatherDetails(name,lat,lon,country,state){
     let FORECAST_API_URL=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,
     WEATHER_API_URL=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`,
     AIR_POLLUTION_API_URL=`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${api_key}`,
