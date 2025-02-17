@@ -134,7 +134,7 @@ function getCityCoordinates(){
     if(!cityName) return;
     let GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${api_key}`;
     fetch(GEOCODING_API_URL).then(res => res.json()).then(data => {
-        let {name,lat,lon,country,state,local_names} = data[0];
+        let {name,lat,lon,country,state} = data[0];
         getWeatherDetails(name,lat,lon,country,state);
          }).catch(() => {
           alert(`Failed to fetch coordinates of ${cityName}`);
@@ -146,7 +146,9 @@ function getLocationCoordinates(){
         let REVERSE_GEOLOCATION_URL= `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${api_key}`;
     fetch(REVERSE_GEOLOCATION_URL).then(res => res.json()).then(data =>{
    let{name,country,state}=data[0];
-        getWeatherDetails(name,latitude,longitude,country,state);
+        lat=latitude;
+        lon=longitude;
+        getWeatherDetails(name,lat,lon,country,state);
     }).catch(() => {
         alert(`Failed to fetch Current Location`);
     });
