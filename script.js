@@ -135,7 +135,7 @@ function getCityCoordinates(){
     let GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${api_key}`;
     fetch(GEOCODING_API_URL).then(res => res.json()).then(data => {
         let {name,lat,lon,country,state,local_names} = data[0];
-        getWeatherDetails(name,lat,lon,country,state,local_names);
+        getWeatherDetails(name,lat,lon,country,state);
          }).catch(() => {
           alert(`Failed to fetch coordinates of ${cityName}`);
 });
