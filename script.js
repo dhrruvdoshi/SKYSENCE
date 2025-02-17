@@ -140,4 +140,19 @@ function getCityCoordinates(){
           alert(`Failed to fetch coordinates of ${cityName}`);
 });
 }
+function getLocationCoordinates(){
+    navigator.geolocation.getCurrentPosition(position =>{
+        let{latitude,longitude} = position.coords;
+        let REVERSE_GEOLOCATION_URL= `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid${api_key}`;
+    fetch(REVERSE_GEOLOCATION_URL).then(res => res.json()).then(data =>{
+   let{name,country,state}=data[0];
+        getWeatherDetails(name,latitude,longitude,country,state);
+    }).catch(() => {
+        alert(`Failed to fetch Current Location`);
+    }
+    });
+}
+}
+
 searchBtn.addEventListener('click',getCityCoordinates);
+locationBtn.addEventListener('click',getLocationCoordinates);
