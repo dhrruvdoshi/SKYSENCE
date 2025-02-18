@@ -1,80 +1,100 @@
 * { 
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('img1.jpeg');
+    background: url('background.jpg');
     background-size: cover;
     background-position: center;
 }
 
-.wrapper{
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
     width: 420px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    color: black;
-    border-radius: 10px;
-    padding: 30px 40px;
-
-
-}
-
-.wrapper h1{
-    font-size:36px;
-    text-align:center;
-
-}
-    
-.wrapper .input-box{
+    height: 500px;
     position: relative;
-    width:100%;
-    height:50px;
-    margin:30px 0;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-.input-box input{
+.form-container {
+    display: flex;
+    width: 200%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.wrapper {
+    width: 50%;
+    padding: 30px 40px;
+    background: rgba(255, 255, 255, 0.2);
+    color: black;
+}
+
+/* Move to the right for sign-up */
+.form-box.active .form-container {
+    transform: translateX(-50%);
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
     width: 100%;
     height: 100%;
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(255,255,255, .2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 40px;
     font-size: 16px;
     color: black;
     padding: 20px 45px 20px 20px;
-
 }
 
-.input-box input::placeholder{
+.input-box input::placeholder {
     color: black;
 }
 
-.input-box i{
+.input-box i {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px
+    font-size: 20px;
 }
 
-.wrapper .remember-forgot{
+.remember-forgot, .terms {
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
     margin: -15px 0 15px;
 }
 
-.remember-forgot label input{
+.remember-forgot label input, .terms label input {
     accent-color: black;
     margin-right: 3px;
 }
@@ -82,40 +102,43 @@ body{
 .remember-forgot a {
     color: black;
     text-decoration: none;
-
 }
 
 .remember-forgot a:hover {
     text-decoration: underline;
 }
 
-.wrapper .btn {
+.btn {
     width: 100%;
     height: 45px;
     background: #fff;
     border: none;
     outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
     color: #333;
     font-weight: 600;
-
+    transition: 0.3s;
 }
 
-.wrapper .register-link {
+.btn:hover {
+    background: #ddd;
+}
+
+.register-link, .login-link {
     font-size: 14.5px;
     text-align: center;
     margin: 20px 0 15px;
 }
 
-.register-link p a {
+.register-link p a, .login-link p a {
     color: black;
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 600;
 }
 
-.register-link p a:hover {
+.register-link p a:hover, .login-link p a:hover {
     text-decoration: underline;
 }
